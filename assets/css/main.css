@@ -258,7 +258,11 @@ input, textarea, select { font-family: inherit; }
   gap: 1rem;
 }
 @media (max-width: 767px) {
-  .velong-nav__inner { grid-template-columns: auto 1fr auto; }
+  .velong-nav__inner {
+    grid-template-columns: 1fr auto 1fr;
+    padding-inline: 1rem;
+    gap: .5rem;
+  }
 }
 
 .velong-nav__logo {
@@ -276,7 +280,10 @@ input, textarea, select { font-family: inherit; }
   .velong-nav__logo {
     grid-column: 2;
     justify-content: center;
-    width: auto;
+    height: 32px;
+    width: 110px;
+    max-width: 110px;
+    margin-inline: auto;
   }
 }
 .velong-nav__logo-img {
@@ -290,7 +297,14 @@ input, textarea, select { font-family: inherit; }
   transition: opacity 600ms cubic-bezier(.4,0,.2,1);
 }
 @media (max-width: 767px) {
-  .velong-nav__logo-img { left: 50%; transform: translate(-50%, -50%); }
+  .velong-nav__logo-img {
+    height: 32px;
+    max-width: 110px;
+    max-height: 32px;
+    object-fit: contain;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 .velong-nav__logo-ivory { opacity: 1; }
 .velong-nav__logo-noir  { opacity: 0; }
@@ -334,6 +348,9 @@ input, textarea, select { font-family: inherit; }
   justify-content: flex-end;
   gap: .5rem;
 }
+@media (max-width: 767px) {
+  .velong-nav__actions { gap: .15rem; }
+}
 
 .velong-nav__icon-btn {
   width: 40px; height: 40px;
@@ -344,6 +361,10 @@ input, textarea, select { font-family: inherit; }
   position: relative;
 }
 .velong-nav__icon-btn svg { width: 20px; height: 20px; }
+@media (max-width: 767px) {
+  .velong-nav__icon-btn { width: 36px; height: 36px; }
+  .velong-nav__icon-btn svg { width: 18px; height: 18px; }
+}
 .velong-nav__icon-btn:hover { color: var(--velong-gold); background: rgba(255,255,255,.06); }
 .velong-nav__icon-btn:focus-visible { outline: 2px solid var(--velong-gold); outline-offset: 2px; }
 
@@ -397,7 +418,15 @@ input, textarea, select { font-family: inherit; }
 .velong-nav__burger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 .velong-nav__burger:focus-visible { outline: 2px solid var(--velong-gold); border-radius: 4px; }
 @media (max-width: 767px) {
-  .velong-nav__burger { display: flex; grid-column: 1; }
+  .velong-nav__burger {
+    display: flex;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    width: 36px;
+    height: 36px;
+    padding: .35rem;
+  }
 }
 
 /* Drawer */
@@ -690,6 +719,10 @@ input, textarea, select { font-family: inherit; }
 }
 @media (max-width: 540px) {
   .velong-benefits__list { grid-template-columns: repeat(2, 1fr); }
+  /* L'ultimo benefit, se dispari, prende tutta la larghezza per non restare orfano */
+  .velong-benefits__list > .velong-benefit:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 }
 
 .velong-benefit {
@@ -817,7 +850,16 @@ input, textarea, select { font-family: inherit; }
   .velong-collections__grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 600px) {
-  .velong-collections__grid { grid-template-columns: repeat(2, 1fr); }
+  .velong-collections__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: .75rem;
+  }
+  /* L'ultima card, se dispari, occupa tutta la riga */
+  .velong-collections__grid > .velong-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - .375rem);
+    margin-inline: auto;
+  }
 }
 
 .velong-card {
@@ -867,6 +909,17 @@ input, textarea, select { font-family: inherit; }
   transition: color var(--velong-dur-fast);
 }
 .velong-card:hover .velong-card__cta { color: var(--velong-gold-dim); }
+/* Su mobile: titolo sopra, CTA sotto per evitare wrap del titolo */
+@media (max-width: 600px) {
+  .velong-card__body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .35rem;
+    padding: .85rem 1rem;
+  }
+  .velong-card__title { font-size: 1rem; }
+  .velong-card__cta { font-size: .65rem; }
+}
 
 /* ─── SHOP PER COLORE ───────────────────────────────────────────────────── */
 .velong-color-shop {
