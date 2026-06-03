@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFFDF8">
+  <title>VÉLONG · Clip-In Extensions · Castano Miele</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body class="velong-root velong-pdp-page">
+
+<a href="#main" class="velong-skip">Vai al contenuto</a>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<header class="velong-nav" role="banner">
+  <div class="velong-nav__inner">
+    <button type="button" class="velong-nav__burger" data-velong-burger
+            aria-label="Apri menu" aria-controls="velong-drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="velong-nav__menu" aria-label="Menu principale">
+      <a class="velong-nav__link" href="index.html#collections">Collezioni</a>
+      <a class="velong-nav__link" href="index.html#ba">Lookbook</a>
+      <a class="velong-nav__link" href="index.html#why">La Storia</a>
+      <a class="velong-nav__link" href="index.html#contact">Contatti</a>
+    </nav>
+
+    <a href="index.html" class="velong-nav__logo" aria-label="Vélong · Home">
+      <img src="LOGHI/DEFINITIVI/velong_write_logo_white%20copia%202@2x.png"
+           alt="Vélong" class="velong-nav__logo-img velong-nav__logo-ivory"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <img src="LOGHI/DEFINITIVI/velong_write_logo_white%20copia@2x.png"
+           alt="Vélong" class="velong-nav__logo-img velong-nav__logo-noir">
+    </a>
+
+    <div class="velong-nav__actions">
+      <div class="velong-lang" role="group" aria-label="Lingua">
+        <button class="velong-lang__btn is-active" data-velong-lang-btn="it" aria-pressed="true">IT</button>
+        <span class="velong-lang__sep" aria-hidden="true">/</span>
+        <button class="velong-lang__btn" data-velong-lang-btn="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="velong-nav__icon-btn" aria-label="Cerca" data-velong-search-btn>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button type="button" class="velong-nav__icon-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.582-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button type="button" class="velong-nav__icon-btn" aria-label="Borsa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.5 12.5a2 2 0 0 1-2 1.5H8.5a2 2 0 0 1-2-1.5L5 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <span class="velong-nav__cart-count" aria-label="0 articoli">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Search overlay -->
+<div class="velong-search-overlay" data-velong-search aria-hidden="true" role="dialog" aria-modal="true" aria-label="Ricerca">
+  <button class="velong-search-close" aria-label="Chiudi ricerca" data-velong-search-close>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="velong-search-inner">
+    <p class="velong-search-label">Cosa stai cercando?</p>
+    <form class="velong-search-form" role="search" data-velong-search-form>
+      <svg class="velong-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" class="velong-search-input" placeholder="Cerca colore, prodotto, stile…" autocomplete="off" data-velong-search-input>
+    </form>
+    <div class="velong-search-hints">
+      <span>Suggeriti:</span>
+      <button type="button" class="velong-search-hint">Clip-In</button>
+      <button type="button" class="velong-search-hint">Castano Miele</button>
+      <button type="button" class="velong-search-hint">Biondo Platino</button>
+      <button type="button" class="velong-search-hint">Tape-In</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile drawer -->
+<aside id="velong-drawer" class="velong-drawer" data-velong-drawer aria-label="Menu mobile">
+  <nav class="velong-drawer__menu">
+    <a class="velong-drawer__link" href="index.html#collections">Collezioni</a>
+    <a class="velong-drawer__link" href="index.html#ba">Lookbook</a>
+    <a class="velong-drawer__link" href="index.html#why">La Storia</a>
+    <a class="velong-drawer__link" href="index.html#contact">Contatti</a>
+  </nav>
+  <div class="velong-drawer__lang" role="group" aria-label="Lingua">
+    <button class="velong-lang__btn is-active" data-velong-lang-btn="it">IT</button>
+    <span class="velong-lang__sep" aria-hidden="true">/</span>
+    <button class="velong-lang__btn" data-velong-lang-btn="en">EN</button>
+  </div>
+</aside>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<main id="main">
+
+  <!-- Breadcrumb -->
+  <nav class="velong-pdp-breadcrumb" aria-label="Percorso di navigazione">
+    <a href="index.html">Home</a>
+    <span aria-hidden="true">·</span>
+    <a href="index.html#store">Estensioni</a>
+    <span aria-hidden="true">·</span>
+    <a href="index.html#store">Clip-In</a>
+    <span aria-hidden="true">·</span>
+    <span aria-current="page">Castano Miele</span>
+  </nav>
+
+  <!-- ─── PRODUCT LAYOUT ─── -->
+  <section class="velong-pdp" aria-label="Prodotto">
+
+    <!-- Gallery -->
+    <div class="velong-pdp__gallery" data-pdp-gallery>
+      <div class="velong-pdp__main-wrap">
+        <img class="velong-pdp__main-img" src="examples/esempio1.png"
+             alt="Clip-In Extensions Castano Miele – vista frontale"
+             data-pdp-main-img>
+        <span class="velong-pdp__badge">Bestseller</span>
+      </div>
+
+      <div class="velong-pdp__thumbs" role="list" aria-label="Galleria prodotto">
+        <button class="velong-pdp__thumb is-active" aria-label="Immagine 1" data-pdp-thumb="examples/esempio1.png" role="listitem">
+          <img src="examples/esempio1.png" alt="" loading="lazy">
+        </button>
+        <button class="velong-pdp__thumb" aria-label="Immagine 2" data-pdp-thumb="examples/esempio2.png" role="listitem">
+          <img src="examples/esempio2.png" alt="" loading="lazy">
+        </button>
+        <button class="velong-pdp__thumb" aria-label="Immagine 3" data-pdp-thumb="examples/esempio3.png" role="listitem">
+          <img src="examples/esempio3.png" alt="" loading="lazy">
+        </button>
+        <button class="velong-pdp__thumb" aria-label="Immagine 4" data-pdp-thumb="examples/esempio4.png" role="listitem">
+          <img src="examples/esempio4.png" alt="" loading="lazy">
+        </button>
+        <button class="velong-pdp__thumb" aria-label="Immagine 5" data-pdp-thumb="examples/esempio1.png" role="listitem">
+          <img src="examples/esempio1.png" alt="" loading="lazy">
+        </button>
+        <button class="velong-pdp__thumb" aria-label="Immagine 6" data-pdp-thumb="examples/esempio2.png" role="listitem">
+          <img src="examples/esempio2.png" alt="" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="velong-pdp__info">
+
+      <!-- Category + title -->
+      <p class="velong-pdp__category">Clip-In Extensions</p>
+      <h1 class="velong-pdp__title">Castano Miele</h1>
+
+      <!-- Rating -->
+      <div class="velong-pdp__rating" aria-label="Valutazione 4.8 su 5">
+        <div class="velong-pdp__stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+        </div>
+        <span class="velong-pdp__rating-score">4.8</span>
+        <a href="#velong-pdp-reviews" class="velong-pdp__rating-link">124 recensioni</a>
+      </div>
+
+      <!-- Price -->
+      <div class="velong-pdp__price-wrap">
+        <span class="velong-pdp__price">€ 34,90</span>
+        <span class="velong-pdp__price-note">IVA inclusa · Spedizione gratuita oltre 99€</span>
+      </div>
+
+      <hr class="velong-pdp__divider">
+
+      <!-- Color selector -->
+      <div class="velong-pdp__option-group">
+        <p class="velong-pdp__option-label">
+          Colore: <strong class="velong-pdp__option-value" data-pdp-color-name>Castano Miele</strong>
+        </p>
+        <div class="velong-pdp__colors" role="radiogroup" aria-label="Scegli il colore">
+          <label class="velong-pdp__color-item is-active" aria-label="Nero Intenso" title="Nero Intenso">
+            <input type="radio" name="colore" value="nero" class="velong-visually-hidden">
+            <span class="velong-pdp__color-dot" style="background:#16110C"></span>
+          </label>
+          <label class="velong-pdp__color-item" aria-label="Castano Scuro" title="Castano Scuro">
+            <input type="radio" name="colore" value="castano-scuro" class="velong-visually-hidden">
+            <span class="velong-pdp__color-dot" style="background:#3D2314"></span>
+          </label>
+          <label class="velong-pdp__color-item is-active" aria-label="Castano Miele" title="Castano Miele">
+            <input type="radio" name="colore" value="castano-miele" class="velong-visually-hidden" checked>
+            <span class="velong-pdp__color-dot" style="background:#7A4E2E"></span>
+          </label>
+          <label class="velong-pdp__color-item" aria-label="Caramello" title="Caramello">
+            <input type="radio" name="colore" value="caramello" class="velong-visually-hidden">
+            <span class="velong-pdp__color-dot" style="background:#C8895A"></span>
+          </label>
+          <label class="velong-pdp__color-item" aria-label="Biondo Dorato" title="Biondo Dorato">
+            <input type="radio" name="colore" value="biondo-dorato" class="velong-visually-hidden">
+            <span class="velong-pdp__color-dot" style="background:#D4A853"></span>
+          </label>
+          <label class="velong-pdp__color-item" aria-label="Biondo Champagne" title="Biondo Champagne">
+            <input type="radio" name="colore" value="biondo-champagne" class="velong-visually-hidden">
+            <span class="velong-pdp__color-dot" style="background:#E8DAB8"></span>
+          </label>
+          <label class="velong-pdp__color-item" aria-label="Biondo Platino" title="Biondo Platino">
+            <input type="radio" name="colore" value="biondo-platino" class="velong-visually-hidden">
+            <span class="velong-pdp__color-dot" style="background:#F0E6CC; border:1px solid rgba(22,17,12,.15)"></span>
+          </label>
+          <label class="velong-pdp__color-item" aria-label="Rame Intenso" title="Rame Intenso">
+            <input type="radio" name="colore" value="ramato" class="velong-visually-hidden">
+            <span class="velong-pdp__color-dot" style="background:#A03020"></span>
+          </label>
+        </div>
+        <a href="index.html#color-finder" class="velong-pdp__color-finder-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+          Non sai quale colore fa per te? Usa il Color Finder →
+        </a>
+      </div>
+
+      <!-- Length selector -->
+      <div class="velong-pdp__option-group">
+        <p class="velong-pdp__option-label">
+          Lunghezza: <strong class="velong-pdp__option-value" data-pdp-length-name>50 cm</strong>
+        </p>
+        <div class="velong-pdp__pills" role="radiogroup" aria-label="Scegli la lunghezza">
+          <label class="velong-pdp__pill">
+            <input type="radio" name="lunghezza" value="40" class="velong-visually-hidden">
+            <span>40 cm</span>
+          </label>
+          <label class="velong-pdp__pill is-active">
+            <input type="radio" name="lunghezza" value="50" class="velong-visually-hidden" checked>
+            <span>50 cm</span>
+          </label>
+          <label class="velong-pdp__pill">
+            <input type="radio" name="lunghezza" value="60" class="velong-visually-hidden">
+            <span>60 cm</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Weight/volume selector -->
+      <div class="velong-pdp__option-group">
+        <p class="velong-pdp__option-label">
+          Volume: <strong class="velong-pdp__option-value" data-pdp-weight-name>100 g</strong>
+        </p>
+        <div class="velong-pdp__pills" role="radiogroup" aria-label="Scegli il volume">
+          <label class="velong-pdp__pill is-active">
+            <input type="radio" name="volume" value="100" class="velong-visually-hidden" checked>
+            <span>100 g</span>
+          </label>
+          <label class="velong-pdp__pill">
+            <input type="radio" name="volume" value="150" class="velong-visually-hidden">
+            <span>150 g</span>
+          </label>
+          <label class="velong-pdp__pill">
+            <input type="radio" name="volume" value="200" class="velong-visually-hidden">
+            <span>200 g</span>
+          </label>
+        </div>
+      </div>
+
+      <hr class="velong-pdp__divider">
+
+      <!-- Qty + CTA -->
+      <div class="velong-pdp__cta-row">
+        <div class="velong-pdp__qty" aria-label="Quantità">
+          <button class="velong-pdp__qty-btn" type="button" aria-label="Diminuisci" data-pdp-qty-dec>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+          </button>
+          <input class="velong-pdp__qty-input" type="number" value="1" min="1" max="99" aria-label="Quantità" data-pdp-qty>
+          <button class="velong-pdp__qty-btn" type="button" aria-label="Aumenta" data-pdp-qty-inc>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+        <button class="velong-btn velong-btn--primary velong-pdp__add-btn" type="button">
+          Aggiungi al carrello
+        </button>
+      </div>
+      <button class="velong-pdp__buy-btn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.5 12.5a2 2 0 0 1-2 1.5H8.5a2 2 0 0 1-2-1.5L5 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        Acquista subito
+      </button>
+
+      <!-- Wishlist / compare -->
+      <div class="velong-pdp__meta-links">
+        <button class="velong-pdp__meta-link" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Lista desideri
+        </button>
+        <button class="velong-pdp__meta-link" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          Confronta
+        </button>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="velong-pdp__trust">
+        <div class="velong-pdp__trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 7h13v10H3z"/><path d="M16 11h4l1 3v3h-5z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          <span>Spedizione 24–48h</span>
+        </div>
+        <div class="velong-pdp__trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><polyline points="9 14 4 9 9 4"/><path d="M4 9h11a5 5 0 0 1 0 10H8"/></svg>
+          <span>Reso gratuito 60 gg</span>
+        </div>
+        <div class="velong-pdp__trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Pagamento sicuro</span>
+        </div>
+      </div>
+
+      <!-- Accordion -->
+      <div class="velong-pdp__accordion">
+
+        <details class="velong-pdp__acc-item" open>
+          <summary class="velong-pdp__acc-summary">
+            Descrizione
+            <svg class="velong-pdp__acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="velong-pdp__acc-body">
+            <p>Le Clip-In Castano Miele Vélong sono realizzate in <strong>fibra 100% Remy Human Hair</strong> con cuticola integra e orientata nella stessa direzione. Il risultato è un'estensione setosa, lucente e indistinguibile dai capelli naturali.</p>
+            <p>Applicazione in 3 minuti, senza strumenti e senza danneggiare i tuoi capelli. Ogni set include weft di dimensioni variabili per la massima copertura.</p>
+          </div>
+        </details>
+
+        <details class="velong-pdp__acc-item">
+          <summary class="velong-pdp__acc-summary">
+            Dettagli e composizione
+            <svg class="velong-pdp__acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="velong-pdp__acc-body">
+            <ul class="velong-pdp__detail-list">
+              <li><span>Materiale</span><span>Remy Human Hair 100%</span></li>
+              <li><span>Clip</span><span>Acciaio con rivestimento in silicone</span></li>
+              <li><span>Weft inclusi</span><span>7 pezzi (4×4cm · 2×6cm · 1×8cm)</span></li>
+              <li><span>Lunghezza</span><span>40 / 50 / 60 cm</span></li>
+              <li><span>Peso set</span><span>100 / 150 / 200 g</span></li>
+              <li><span>Colorazione</span><span>Tinta professionale, anti-sfumatura</span></li>
+              <li><span>Resistenza al calore</span><span>Fino a 220°C</span></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="velong-pdp__acc-item">
+          <summary class="velong-pdp__acc-summary">
+            Istruzioni di cura
+            <svg class="velong-pdp__acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="velong-pdp__acc-body">
+            <ul class="velong-pdp__care-list">
+              <li>Lava con shampoo delicato, a temperature bassa</li>
+              <li>Ammorbidisci con balsamo idratante, evita le clip</li>
+              <li>Asciuga delicatamente con l'asciugamano, non sfregare</li>
+              <li>Piega con piastra o phon fino a max 220°C</li>
+              <li>Conserva nel sacchetto Vélong fornito in dotazione</li>
+              <li>Non dormire, nuotare o fare sport con le estensioni indossate</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="velong-pdp__acc-item">
+          <summary class="velong-pdp__acc-summary">
+            Spedizione e resi
+            <svg class="velong-pdp__acc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="velong-pdp__acc-body">
+            <p><strong>Spedizione standard</strong> — 24/48h lavorative. Gratuita sopra 99€.</p>
+            <p><strong>Spedizione express</strong> — consegna il giorno seguente (ordini entro le 12:00).</p>
+            <p><strong>Reso</strong> — gratuito entro 60 giorni dall'acquisto. Prodotto non utilizzato e nella confezione originale.</p>
+            <p><strong>Cambio colore/taglia</strong> — disponibile una volta per ordine. Contattaci via email o chat.</p>
+          </div>
+        </details>
+
+      </div><!-- /.velong-pdp__accordion -->
+
+    </div><!-- /.velong-pdp__info -->
+  </section><!-- /.velong-pdp -->
+
+  <!-- ─── REVIEWS ─── -->
+  <section class="velong-pdp-reviews" id="velong-pdp-reviews" aria-label="Recensioni clienti">
+    <div class="velong-container">
+
+      <header class="velong-pdp-reviews__header">
+        <h2 class="velong-pdp-reviews__title">Cosa dicono di questo prodotto</h2>
+        <div class="velong-pdp-reviews__summary">
+          <span class="velong-pdp-reviews__avg">4.8</span>
+          <div>
+            <div class="velong-pdp__stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            </div>
+            <span class="velong-pdp-reviews__count">124 recensioni verificate</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="velong-pdp-reviews__grid">
+        <article class="velong-testimonial">
+          <div class="velong-testimonial__stars" aria-label="5 stelle">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+          </div>
+          <p class="velong-testimonial__quote">Colore identico ai miei capelli, texture setosa. Le porto ogni giorno e nessuno se ne accorge. Acquisto ripetuto.</p>
+          <div class="velong-testimonial__author">
+            <div class="velong-testimonial__avatar" aria-hidden="true">M</div>
+            <div>
+              <span class="velong-testimonial__name">Martina R.</span>
+              <span class="velong-testimonial__location">Milano · Acquisto verificato</span>
+            </div>
+          </div>
+        </article>
+        <article class="velong-testimonial">
+          <div class="velong-testimonial__stars" aria-label="5 stelle">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+          </div>
+          <p class="velong-testimonial__quote">Spedizione rapidissima, packaging curatissimo. Le estensioni sono morbidissime e la clip non si sente per niente.</p>
+          <div class="velong-testimonial__author">
+            <div class="velong-testimonial__avatar" aria-hidden="true">F</div>
+            <div>
+              <span class="velong-testimonial__name">Federica L.</span>
+              <span class="velong-testimonial__location">Roma · Acquisto verificato</span>
+            </div>
+          </div>
+        </article>
+        <article class="velong-testimonial">
+          <div class="velong-testimonial__stars" aria-label="5 stelle">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 7 7 .6-5.4 4.6 1.8 7-6.4-4-6.4 4 1.8-7L2 9.6 9 9l3-7Z"/></svg>
+          </div>
+          <p class="velong-testimonial__quote">Porto il 50cm 150g, volume perfetto. Con il Color Finder ho trovato la sfumatura esatta al primo tentativo. Consigliatissime.</p>
+          <div class="velong-testimonial__author">
+            <div class="velong-testimonial__avatar" aria-hidden="true">A</div>
+            <div>
+              <span class="velong-testimonial__name">Alessia C.</span>
+              <span class="velong-testimonial__location">Firenze · Acquisto verificato</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── RELATED PRODUCTS ─── -->
+  <section class="velong-pdp-related" aria-label="Prodotti correlati">
+    <div class="velong-container">
+      <header class="velong-section__header">
+        <p class="velong-eyebrow velong-eyebrow--dark">Potrebbe piacerti anche</p>
+        <h2 class="velong-section__title" style="color:var(--velong-light-text)">Stessa <em>qualità,</em> stili diversi.</h2>
+      </header>
+      <div class="velong-shop__grid">
+        <article class="velong-product">
+          <a class="velong-product__media" href="product.html">
+            <img src="examples/esempio2.png" alt="Tape-In Castano Miele" loading="lazy">
+            <span class="velong-product__badge velong-product__badge--gold">Nuovo</span>
+          </a>
+          <div class="velong-product__info">
+            <p class="velong-product__category">Tape-In Extensions</p>
+            <h3 class="velong-product__name"><a href="product.html">Castano Miele</a></h3>
+            <div class="velong-product__price-row"><span class="velong-product__price">€ 42,90</span></div>
+            <button class="velong-product__add" type="button">Aggiungi al carrello</button>
+          </div>
+        </article>
+        <article class="velong-product">
+          <a class="velong-product__media" href="product.html">
+            <img src="examples/esempio3.png" alt="Ponytail Castano Miele" loading="lazy">
+          </a>
+          <div class="velong-product__info">
+            <p class="velong-product__category">Ponytail</p>
+            <h3 class="velong-product__name"><a href="product.html">Castano Miele</a></h3>
+            <div class="velong-product__price-row"><span class="velong-product__price">€ 29,90</span></div>
+            <button class="velong-product__add" type="button">Aggiungi al carrello</button>
+          </div>
+        </article>
+        <article class="velong-product">
+          <a class="velong-product__media" href="product.html">
+            <img src="examples/esempio4.png" alt="Clip-In Caramello" loading="lazy">
+            <span class="velong-product__badge velong-product__badge--gold">Bestseller</span>
+          </a>
+          <div class="velong-product__info">
+            <p class="velong-product__category">Clip-In Extensions</p>
+            <h3 class="velong-product__name"><a href="product.html">Caramello</a></h3>
+            <div class="velong-product__price-row"><span class="velong-product__price">€ 34,90</span></div>
+            <button class="velong-product__add" type="button">Aggiungi al carrello</button>
+          </div>
+        </article>
+        <article class="velong-product">
+          <a class="velong-product__media" href="product.html">
+            <img src="examples/esempio1.png" alt="Clip-In Biondo Dorato" loading="lazy">
+          </a>
+          <div class="velong-product__info">
+            <p class="velong-product__category">Clip-In Extensions</p>
+            <h3 class="velong-product__name"><a href="product.html">Biondo Dorato</a></h3>
+            <div class="velong-product__price-row"><span class="velong-product__price">€ 34,90</span></div>
+            <button class="velong-product__add" type="button">Aggiungi al carrello</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════ SUB-FOOTER ═══════════════════ -->
+<section class="velong-subfooter" aria-label="Garanzie di acquisto">
+  <div class="velong-subfooter__inner">
+    <div class="velong-subfooter__item">
+      <span class="velong-subfooter__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3 7h13v10H3z"/><path d="M16 11h4l1 3v3h-5z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+      </span>
+      <div>
+        <h3 class="velong-subfooter__title">Spedizione gratuita</h3>
+        <p class="velong-subfooter__sub">oltre 99€</p>
+      </div>
+    </div>
+    <div class="velong-subfooter__item">
+      <span class="velong-subfooter__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><polyline points="9 14 4 9 9 4"/><path d="M4 9h11a5 5 0 0 1 5 5v0a5 5 0 0 1-5 5h-3"/></svg>
+      </span>
+      <div>
+        <h3 class="velong-subfooter__title">Reso facile</h3>
+        <p class="velong-subfooter__sub">60 giorni</p>
+      </div>
+    </div>
+    <div class="velong-subfooter__item">
+      <span class="velong-subfooter__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </span>
+      <div>
+        <h3 class="velong-subfooter__title">Pagamenti sicuri</h3>
+        <p class="velong-subfooter__sub">e protetti</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="velong-footer" role="contentinfo">
+  <div class="velong-footer__inner">
+    <div class="velong-footer__cols">
+      <div class="velong-footer__col">
+        <a class="velong-footer__brand-logo" href="index.html" aria-label="Vélong · Home">
+          <img src="LOGHI/DEFINITIVI/velong_full_logo_white%20copia%202@2x.png" alt="Vélong" class="velong-footer__brand-logo-img" onerror="this.style.opacity='0'">
+        </a>
+        <p class="velong-footer__brand-tag">Hair couture. Made for the unhurried. Spedito nel mondo da Milano.</p>
+      </div>
+      <div class="velong-footer__col">
+        <p class="velong-footer__col-title">Shop</p>
+        <ul class="velong-footer__links">
+          <li><a class="velong-footer__link" href="#">Clip-In</a></li>
+          <li><a class="velong-footer__link" href="#">Tape-In</a></li>
+          <li><a class="velong-footer__link" href="#">Ponytail</a></li>
+          <li><a class="velong-footer__link" href="#">Volume</a></li>
+          <li><a class="velong-footer__link" href="#">Accessori</a></li>
+        </ul>
+      </div>
+      <div class="velong-footer__col">
+        <p class="velong-footer__col-title">Supporto</p>
+        <ul class="velong-footer__links">
+          <li><a class="velong-footer__link" href="#">Spedizioni</a></li>
+          <li><a class="velong-footer__link" href="#">Resi & Cambi</a></li>
+          <li><a class="velong-footer__link" href="#">FAQ</a></li>
+          <li><a class="velong-footer__link" href="#">Contattaci</a></li>
+        </ul>
+      </div>
+      <div class="velong-footer__col velong-footer__col--newsletter">
+        <p class="velong-footer__col-title">Resta in contatto</p>
+        <form class="velong-newsletter__form" data-velong-newsletter>
+          <label class="velong-visually-hidden" for="pdp-nl-email">La tua email</label>
+          <input class="velong-newsletter__input" id="pdp-nl-email" type="email" required placeholder="La tua email" autocomplete="email">
+          <button class="velong-newsletter__submit" type="submit">Iscriviti</button>
+        </form>
+        <p class="velong-newsletter__success">Benvenuta nella famiglia Vélong ✦</p>
+      </div>
+    </div>
+    <div class="velong-footer__bottom">
+      <p class="velong-footer__copyright">© 2026 Vélong Hair Couture · P.IVA 00000000000</p>
+      <div class="velong-footer__social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3v3.6a4.4 4.4 0 0 0 4.4 4.4v3a7.3 7.3 0 0 1-4.4-1.5v7.2a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.1a3 3 0 1 0 2 2.8V3h3Z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Gallery thumbnail switcher
+  (function() {
+    var mainImg = document.querySelector('[data-pdp-main-img]');
+    document.querySelectorAll('[data-pdp-thumb]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('[data-pdp-thumb]').forEach(function(b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        if (mainImg) {
+          mainImg.style.opacity = '0';
+          setTimeout(function() {
+            mainImg.src = btn.dataset.pdpThumb;
+            mainImg.style.opacity = '1';
+          }, 150);
+        }
+      });
+    });
+
+    // Quantity stepper
+    var qtyInput = document.querySelector('[data-pdp-qty]');
+    document.querySelector('[data-pdp-qty-dec]') && document.querySelector('[data-pdp-qty-dec]').addEventListener('click', function() {
+      if (qtyInput && parseInt(qtyInput.value) > 1) qtyInput.value = parseInt(qtyInput.value) - 1;
+    });
+    document.querySelector('[data-pdp-qty-inc]') && document.querySelector('[data-pdp-qty-inc]').addEventListener('click', function() {
+      if (qtyInput) qtyInput.value = parseInt(qtyInput.value) + 1;
+    });
+
+    // Pill selectors — update label
+    document.querySelectorAll('.velong-pdp__pill input').forEach(function(inp) {
+      inp.addEventListener('change', function() {
+        var group = inp.closest('.velong-pdp__pills');
+        group.querySelectorAll('.velong-pdp__pill').forEach(function(p) { p.classList.remove('is-active'); });
+        inp.closest('.velong-pdp__pill').classList.add('is-active');
+      });
+    });
+
+    // Color selectors — update label
+    document.querySelectorAll('.velong-pdp__color-item input').forEach(function(inp) {
+      inp.addEventListener('change', function() {
+        document.querySelectorAll('.velong-pdp__color-item').forEach(function(c) { c.classList.remove('is-active'); });
+        inp.closest('.velong-pdp__color-item').classList.add('is-active');
+        var nameEl = document.querySelector('[data-pdp-color-name]');
+        if (nameEl) nameEl.textContent = inp.closest('.velong-pdp__color-item').getAttribute('aria-label');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
