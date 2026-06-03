@@ -1990,6 +1990,245 @@ input, textarea, select { font-family: inherit; }
   border-color: var(--velong-gold);
 }
 
+/* ─── ACCOUNT OVERLAY ───────────────────────────────────────────────────── */
+.velong-account-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--velong-z-nav) + 10);
+  background: rgba(11, 9, 7, .94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--velong-dur-med) var(--velong-ease-out);
+}
+.velong-account-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+.velong-account-overlay.is-open .velong-account-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.velong-account-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--velong-ivory);
+  transition: background var(--velong-dur-fast);
+  z-index: 2;
+}
+.velong-account-close:hover { background: rgba(255,255,255,.15); }
+.velong-account-close svg { width: 20px; height: 20px; }
+
+.velong-account-inner {
+  width: 100%;
+  max-width: 440px;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(180deg, rgba(30, 26, 21, .6), rgba(22, 17, 12, .6));
+  border: 1px solid rgba(184, 152, 85, .18);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  transform: translateY(24px);
+  opacity: 0;
+  transition: transform var(--velong-dur-med) var(--velong-ease-out),
+              opacity var(--velong-dur-med) var(--velong-ease-out);
+  text-align: center;
+}
+
+.velong-account-brand {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.velong-account-brand-mark {
+  height: 52px;
+  width: auto;
+}
+
+.velong-account-title {
+  font-family: var(--velong-font-display);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--velong-ivory);
+  letter-spacing: var(--velong-tracking-tight);
+  margin: 0 0 .4rem;
+}
+.velong-account-sub {
+  font-size: .85rem;
+  color: var(--velong-text-muted);
+  margin: 0 0 1.75rem;
+  letter-spacing: .02em;
+}
+
+/* SSO buttons */
+.velong-account-sso {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  margin-bottom: 1.5rem;
+}
+.velong-sso-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  width: 100%;
+  padding: .8rem 1rem;
+  background: var(--velong-ivory);
+  color: var(--velong-noir);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--velong-radius-pill);
+  font-family: var(--velong-font-sans);
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  cursor: pointer;
+  transition: transform var(--velong-dur-fast),
+              box-shadow var(--velong-dur-fast),
+              background var(--velong-dur-fast);
+}
+.velong-sso-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.35);
+}
+.velong-sso-btn:active { transform: translateY(0); }
+.velong-sso-icon { width: 20px; height: 20px; flex-shrink: 0; }
+
+.velong-sso-btn--apple {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.velong-sso-btn--meta {
+  background: #fff;
+  color: #1c1e21;
+}
+
+/* Divider "oppure" */
+.velong-account-divider {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--velong-text-muted);
+  font-size: .7rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+}
+.velong-account-divider::before,
+.velong-account-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(242, 235, 223, .12);
+}
+
+/* Form */
+.velong-account-form {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  text-align: left;
+}
+.velong-account-form[hidden] { display: none; }
+.velong-account-field {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+.velong-account-label {
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--velong-text-muted);
+}
+.velong-account-field input {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(242, 235, 223, .14);
+  border-radius: 10px;
+  padding: .75rem .9rem;
+  font-family: var(--velong-font-sans);
+  font-size: .95rem;
+  color: var(--velong-ivory);
+  outline: none;
+  transition: border-color var(--velong-dur-fast),
+              background var(--velong-dur-fast);
+}
+.velong-account-field input::placeholder {
+  color: rgba(242, 235, 223, .28);
+}
+.velong-account-field input:focus {
+  border-color: var(--velong-gold);
+  background: rgba(255,255,255,.06);
+}
+.velong-account-forgot {
+  align-self: flex-end;
+  font-size: .75rem;
+  color: var(--velong-champagne);
+  text-decoration: none;
+  margin-top: -.25rem;
+  transition: color var(--velong-dur-fast);
+}
+.velong-account-forgot:hover { color: var(--velong-gold); }
+
+.velong-account-submit {
+  margin-top: .5rem;
+  width: 100%;
+}
+.velong-account-terms {
+  font-size: .7rem;
+  color: var(--velong-text-muted);
+  text-align: center;
+  line-height: 1.5;
+  margin: .5rem 0 0;
+}
+.velong-account-terms a {
+  color: var(--velong-champagne);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Switch tab */
+.velong-account-switch {
+  font-size: .8rem;
+  color: var(--velong-text-muted);
+  text-align: center;
+  margin: 1.5rem 0 0;
+}
+.velong-account-switch-btn {
+  background: none;
+  border: none;
+  color: var(--velong-gold);
+  font-weight: 500;
+  cursor: pointer;
+  font-size: inherit;
+  margin-left: .25rem;
+  letter-spacing: .02em;
+  transition: color var(--velong-dur-fast);
+}
+.velong-account-switch-btn:hover {
+  color: var(--velong-ivory);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .velong-account-inner { padding: 2rem 1.25rem; }
+  .velong-account-close { top: 1rem; right: 1rem; }
+}
+
 /* ─── FOOTER ─────────────────────────────────────────────────────────────── */
 .velong-footer {
   background: var(--velong-bg-deepest);

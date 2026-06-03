@@ -802,12 +802,120 @@
   }
 
   /* ═══════════════════════════════════════════════════════════════════════════
+     ACCOUNT OVERLAY — login / signup + SSO placeholder
+  ═══════════════════════════════════════════════════════════════════════════ */
+  function initAccount() {
+    var overlay  = document.querySelector('[data-velong-account]');
+    var openBtn  = document.querySelector('[data-velong-account-btn]');
+    var closeBtn = document.querySelector('[data-velong-account-close]');
+    if (!overlay || !openBtn) return;
+
+    var titleEl     = overlay.querySelector('[data-velong-account-title]');
+    var subEl       = overlay.querySelector('[data-velong-account-sub]');
+    var loginForm   = overlay.querySelector('[data-velong-account-form="login"]');
+    var signupForm  = overlay.querySelector('[data-velong-account-form="signup"]');
+    var switchBtn   = overlay.querySelector('[data-velong-account-switch]');
+    var switchText  = overlay.querySelector('[data-velong-account-switch-text]');
+    var ssoBtns     = overlay.querySelectorAll('[data-velong-sso]');
+
+    var mode = 'login'; // 'login' | 'signup'
+
+    function setMode(next) {
+      mode = next;
+      if (mode === 'signup') {
+        loginForm.hidden = true;
+        signupForm.hidden = false;
+        titleEl.textContent = 'Crea il tuo account';
+        subEl.textContent = 'Entra nella maison Vélong.';
+        switchText.textContent = 'Hai già un account?';
+        switchBtn.textContent = 'Accedi';
+      } else {
+        loginForm.hidden = false;
+        signupForm.hidden = true;
+        titleEl.textContent = 'Accedi';
+        subEl.textContent = 'Bentornata nella maison Vélong.';
+        switchText.textContent = 'Non hai ancora un account?';
+        switchBtn.textContent = 'Registrati';
+      }
+      // Focus primo input visibile
+      var firstInput = (mode === 'signup' ? signupForm : loginForm).querySelector('input');
+      if (firstInput) setTimeout(function () { firstInput.focus(); }, 80);
+    }
+
+    function open() {
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      setMode('login');
+    }
+
+    function close() {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', open);
+    if (closeBtn) closeBtn.addEventListener('click', close);
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+    });
+
+    switchBtn.addEventListener('click', function () {
+      setMode(mode === 'login' ? 'signup' : 'login');
+    });
+
+    // Placeholder handler per form submit (UI demo)
+    [loginForm, signupForm].forEach(function (form) {
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type=submit]');
+        if (btn) {
+          var original = btn.textContent;
+          btn.textContent = mode === 'signup' ? 'Account creato ✓' : 'Accesso effettuato ✓';
+          btn.disabled = true;
+          setTimeout(function () {
+            btn.textContent = original;
+            btn.disabled = false;
+            close();
+          }, 1200);
+        }
+      });
+    });
+
+    // Placeholder SSO — il backend reale collegherà i provider
+    ssoBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var provider = btn.getAttribute('data-velong-sso');
+        var label = btn.querySelector('span');
+        var original = label ? label.textContent : '';
+        if (label) label.textContent = 'Connessione a ' + provider + '…';
+        btn.disabled = true;
+        // TODO: integrare con il provider OAuth reale
+        setTimeout(function () {
+          if (label) label.textContent = original;
+          btn.disabled = false;
+          window.console && console.info('[velong] SSO clicked:', provider);
+        }, 1200);
+      });
+    });
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
      INIT
   ═══════════════════════════════════════════════════════════════════════════ */
   function init() {
     initI18n();
     initNav();
     initSearch();
+    initAccount();
     initReveals();
     initStats();
     initTestimonialsCarousel();
