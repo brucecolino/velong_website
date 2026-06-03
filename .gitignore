@@ -1,0 +1,37 @@
+# macOS / Windows / Linux junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# Editor / IDE
+.vscode/
+.idea/
+*.sublime-*
+*.code-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build / dipendenze (non usate ora, ma future-proof)
+node_modules/
+dist/
+build/
+.cache/
+
+# Backup / temp
+*.bak
+*.tmp
+*.orig
+
+# Claude / preview locali
+.claude/
+preview-*.png
+
+# Server di sviluppo
+.python-http-server.log
+__pycache__/
+*.pyc

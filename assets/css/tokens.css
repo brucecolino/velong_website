@@ -1,0 +1,145 @@
+﻿/* ===========================================================================
+   VÉLONG · DESIGN TOKENS v2
+   Single source of truth. Namespace: --velong-*
+   =========================================================================== */
+
+@font-face {
+  font-family: 'GaultierTest';
+  src: url('../../LOGHI/gaultier-font-family/gaultiertest-light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GaultierTest';
+  src: url('../../LOGHI/gaultier-font-family/gaultiertest-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ——— PALETTE ——— */
+  --velong-noir:            #16110C;
+  --velong-gold:            #B89855;
+  --velong-champagne:       #D9CAA0;
+  --velong-ivory:           #F2EBDF;
+  --velong-smoke:           #2A2521;
+
+  --velong-bg-base:         var(--velong-noir);
+  --velong-bg-elevated:     var(--velong-smoke);
+  --velong-bg-card:         #1E1A15;
+  --velong-bg-deepest:      #0B0907;
+  --velong-bg-overlay:      rgba(22, 17, 12, .85);
+
+  --velong-gold-soft:       #CBAE6E;
+  --velong-gold-bright:     #DCC080;
+  --velong-gold-deep:       #8F7438;
+  --velong-gold-dim:        #6E5828;
+  --velong-gold-glow:       rgba(184, 152, 85, .22);
+
+  --velong-champagne-soft:  #E4D8B5;
+  --velong-champagne-deep:  #C2AE7C;
+  --velong-ivory-soft:      #F8F3E9;
+  --velong-ivory-warm:      #ECE2D0;
+
+  --velong-light-bg:        var(--velong-ivory);
+  --velong-light-surface:   #FFFDF8;
+  --velong-light-elevated:  var(--velong-ivory-warm);
+  --velong-light-text:      var(--velong-noir);
+  --velong-light-text-2:    #5C4A38;
+  --velong-light-text-3:    #8A7660;
+  --velong-light-border:    rgba(184, 152, 85, .28);
+  --velong-light-border-strong: rgba(184, 152, 85, .55);
+  --velong-light-divider:   rgba(22, 17, 12, .08);
+
+  --velong-text-primary:    var(--velong-ivory);
+  --velong-text-secondary:  #A89B82;
+  --velong-text-muted:      #6B6253;
+  --velong-text-on-gold:    var(--velong-noir);
+
+  --velong-stroke:          rgba(184, 152, 85, .20);
+  --velong-stroke-strong:   rgba(184, 152, 85, .50);
+  --velong-stroke-soft:     rgba(242, 235, 223, .08);
+
+  /* ——— TYPOGRAPHY ——— */
+  --velong-font-display:    'Cormorant Garamond', Georgia, serif;
+  --velong-font-gaultier:   'GaultierTest', Georgia, serif;
+  --velong-font-sans:       'Jost', 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --velong-fs-hero:         clamp(3.25rem, 8.5vw, 7.5rem);
+  --velong-fs-h1:           clamp(2.25rem, 5vw, 4rem);
+  --velong-fs-h2:           clamp(1.75rem, 3.5vw, 2.75rem);
+  --velong-fs-h3:           clamp(1.125rem, 1.8vw, 1.375rem);
+  --velong-fs-body:         clamp(.9375rem, 1.05vw, 1.0625rem);
+  --velong-fs-small:        .8125rem;
+  --velong-fs-eyebrow:      .6875rem;
+
+  --velong-lh-tight:        1.05;
+  --velong-lh-snug:         1.2;
+  --velong-lh-base:         1.6;
+  --velong-lh-loose:        1.78;
+
+  --velong-tracking-tight:  -0.025em;
+  --velong-tracking-base:   0;
+  --velong-tracking-wide:   .06em;
+  --velong-tracking-eyebrow:.22em;
+
+  /* ——— SPACING ——— */
+  --velong-space-3xs:  .25rem;
+  --velong-space-2xs:  .5rem;
+  --velong-space-xs:   .75rem;
+  --velong-space-sm:   1rem;
+  --velong-space-md:   1.5rem;
+  --velong-space-lg:   2.5rem;
+  --velong-space-xl:   4rem;
+  --velong-space-2xl:  6rem;
+  --velong-space-3xl:  clamp(3rem, 6vw, 5rem);
+
+  /* ——— LAYOUT ——— */
+  --velong-container:        1320px;
+  --velong-container-narrow: 960px;
+  --velong-container-wide:   1520px;
+  --velong-gutter:           clamp(1.25rem, 4vw, 2.5rem);
+  --velong-nav-h:            72px;
+  --velong-nav-h-mobile:     60px;
+
+  /* ——— RADII ——— */
+  --velong-radius-xs:  2px;
+  --velong-radius-sm:  6px;
+  --velong-radius-md:  12px;
+  --velong-radius-lg:  20px;
+  --velong-radius-pill:999px;
+
+  /* ——— SHADOWS ——— */
+  --velong-shadow-sm:  0 2px 12px rgba(0,0,0,.22);
+  --velong-shadow-md:  0 8px 32px rgba(0,0,0,.32);
+  --velong-shadow-lg:  0 20px 64px rgba(0,0,0,.48);
+  --velong-shadow-gold:0 8px 32px rgba(184,152,85,.18);
+
+  /* ——— MOTION ——— */
+  --velong-ease-out:      cubic-bezier(.16, .84, .44, 1);
+  --velong-ease-in-out:   cubic-bezier(.65, .05, .36, 1);
+  --velong-ease-cinematic:cubic-bezier(.22, 1, .36, 1);
+  --velong-ease-spring:   cubic-bezier(.34, 1.56, .64, 1);
+  --velong-dur-fast:      .18s;
+  --velong-dur-med:       .42s;
+  --velong-dur-slow:      .85s;
+  --velong-dur-cinematic: 1.4s;
+
+  /* ——— Z-INDEX ——— */
+  --velong-z-nav:    100;
+  --velong-z-drawer: 200;
+  --velong-z-modal:  300;
+  --velong-z-toast:  400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --velong-dur-fast:      .01ms;
+    --velong-dur-med:       .01ms;
+    --velong-dur-slow:      .01ms;
+    --velong-dur-cinematic: .01ms;
+  }
+}
+
